@@ -11,11 +11,13 @@
   char *ap2=ap_2;
   
   //abrir fichero para escritura "w"
-  f = fopen("Usuarios.txt", "w");
+  f = fopen("Usuarios.txt", "a");
   
+  if(f==NULL)
+   {
   //escribir en fichero un string 
   fprintf(f, "Usuarios : \n" );
-  
+  }
     fprintf(f, " Nombre : %s\t \t Apellido 1 : %s \t\t Apellido 2 : %s\n", nombre,ap1,ap2); //Escribir en fichero
   
   //cerrar fichero
@@ -31,11 +33,14 @@
   char* nombre=nom;
   
   //abrir fichero para escritura "w"
-  f = fopen("Instalaciones.txt", "w");
-  
+  f = fopen("Instalaciones.txt", "a");
+   
+   if(f==NULL)
+   {
   //escribir en fichero un string 
   fprintf(f, "Instalaciones : \n" );
-  
+
+  }
   fprintf(f, " %s\n "  , nombre); //Escribir en fichero
   
   //cerrar fichero

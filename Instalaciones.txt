@@ -1,3 +1,4 @@
-Instalaciones : 
- Gym
+ Pisina
+  Gimnasio
+  Sala_01
  

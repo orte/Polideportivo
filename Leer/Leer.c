@@ -23,7 +23,7 @@ int LeerUsuarios(void)
   //cerrar fichero
   fclose(f);
   
-  printf("El fichero tiene %i usuarios registrados\n", num_lines);
+  printf("El fichero tiene %i usuarios registrados\n", num_lines-1);
   
   return 0;
 }
@@ -49,7 +49,7 @@ int LeerInstalaciones(void)
   //cerrar fichero
   fclose(f);
   
-  printf("El fichero tiene %i usuarios registrados\n", num_lines);
+  printf("El fichero tiene %i instalaciones registrados\n", num_lines-1);
   
   return 0;
 }
