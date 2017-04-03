@@ -17,7 +17,7 @@ void AnadirUsuario(Usuario *u);
 void MostrarUsuarios ();
 void AnadirInstalacion(Instalacion *u);
 void MostrarInstalaciones();
-void HacerReserva(Reserva *r);
+void HacerReserva(Reserva *r,Usuario *u,int total,Instalacion *i, int total_int);
 void MostrarReservas();
 
 int main (void)
@@ -64,7 +64,7 @@ do
 
 			case 7: 
 				{
-					HacerReserva(&reservas[total_r]);
+					HacerReserva(&reservas[total_r], usuarios,total, instalaciones, total_int );
 					total_r ++;
 				} 
 				break;
@@ -177,24 +177,84 @@ void MostrarInstalaciones(Instalacion ins[], int total_int)
 	printf("------------------------------\n");
 }
 
-void HacerReserva(Reserva *r)
+void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total_int)
 {
 	char str[MAX_LENGTH];
 	char frmt_str[MAX_LENGTH]; 
+	char frmt_str_[MAX_LENGTH]; 
+
 
 	printf("Ha elegido hacer una reserva :  \n" );
 
 	printf("Introduce tu nombre de usuario : \n ");
 
 	printf("Nombre: \n "); //HAY QUE AÑADIR AQUI UNA VALIDACION QUE COMPRUEBE SI EXISTE
+
 	fgets(str, MAX_LENGTH, stdin);
+	sscanf(str, "%s", frmt_str);
 	clear_if_needed(str);
 
+	int i ;
+	int resultado ;
+	int resultado_2;
 
-	//Para guardar en memoria algo que no sabemos cuanto ocupa.
-	sscanf(str, "%s", frmt_str); //eliminar el \n final. Cogemos la entrada y lo convertimos en String
+	//VALIDACION
+	for (i = 0; i < total; i++)
+	{
+		
+		printf("Nombre: %s\n", u[i].nombre);
+
+		printf("str %s\n", frmt_str );
+
+		resultado = strcmp(u[i].nombre, frmt_str);
+
+		if ( resultado ==0)
+			break;
+
+	}
+
+
+	if(resultado==0)
+	{
+		printf("El nombre de usuario es correcto\n" );
+		//Para guardar en memoria algo que no sabemos cuanto ocupa.
+	 //eliminar el \n final. Cogemos la entrada y lo convertimos en String
 
 	//reservar la memoria justa para la cadena almacenada
+
+	printf("Introduce el nombre de la instalacion que quieres reservar : \n ");
+
+	printf("Nombre: \n "); //HAY QUE AÑADIR AQUI UNA VALIDACION QUE COMPRUEBE SI EXISTE
+	fgets(str, MAX_LENGTH, stdin);
+	clear_if_needed(str);
+//Para guardar en memoria algo que no sabemos cuanto ocupa.
+	sscanf(str, "%s", frmt_str_); //eliminar el \n final. Cogemos la entrada y lo convertimos en String
+
+
+	//Como todos los datos estan bien hacemos la reserva
+
+	
+	//VALIDACION
+	for (i = 0; i < total; i++)
+	{
+		
+		printf("Nombre de la i: %s\n", ins[i].nombre);
+
+		printf("str %s\n", frmt_str_ );
+
+		resultado_2 = strcmp(ins[i].nombre, frmt_str_);
+
+		if ( resultado_2 ==0)
+			break;
+
+	}
+
+
+	if(resultado_2==0)
+	{
+
+		printf("La reserva se ha realizado correctamente!\n");
+
 	r->nombre_usuario = (char *)malloc((strlen(frmt_str) + 1) * sizeof(char)); //strlen() da la longitud en bytes
 																		//Siempre reservo el (tamaño +1)
 
@@ -203,24 +263,22 @@ void HacerReserva(Reserva *r)
 
 	strcpy(r->nombre_usuario, frmt_str); //Guardar(aqui, lo que esta aqui)
 
-	printf("Introduce el nombre de la instalacion que quieres reservar : \n ");
-
-	printf("Nombre: \n "); //HAY QUE AÑADIR AQUI UNA VALIDACION QUE COMPRUEBE SI EXISTE
-	fgets(str, MAX_LENGTH, stdin);
-	clear_if_needed(str);
-
-
-	//Para guardar en memoria algo que no sabemos cuanto ocupa.
-	sscanf(str, "%s", frmt_str); //eliminar el \n final. Cogemos la entrada y lo convertimos en String
-
 	//reservar la memoria justa para la cadena almacenada
-	r->nombre_instalacion = (char *)malloc((strlen(frmt_str) + 1) * sizeof(char)); //strlen() da la longitud en bytes
+	r->nombre_instalacion = (char *)malloc((strlen(frmt_str_) + 1) * sizeof(char)); //strlen() da la longitud en bytes
 																		//Siempre reservo el (tamaño +1)
 
 
 	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
 
-	strcpy(r->nombre_instalacion, frmt_str); //Guardar(aqui, lo que esta aqui)
+	strcpy(r->nombre_instalacion, frmt_str_); //Guardar(aqui, lo que esta aqui)
+
+	}
+}
+	else
+	{
+		printf("Los datos son incorrectos.\n");
+	}
+
 
 
 
