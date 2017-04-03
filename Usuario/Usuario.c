@@ -3,15 +3,7 @@
 
 
 
-void AnadirUsuario(Usuario *u)
-{
 
-}
-
-void EliminarUsuario(Usuario *u)
-{
-
-}
 
 
 
