@@ -1,13 +1,14 @@
-#include "Strings/strings.h"
 #include "Usuario/Usuario.h"
+#include "Reserva/Reserva.h"
+#include "Instalacion/Instalacion.h"
 
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "Instalacion/Instalacion.h"
 
 #define MAX_USUARIOS 7 // Temporal, para comprobar la correcta creacion de alumnos. Al hacer ficheros la eiminaremos.
 #define MAX_INST 7
+#define MAX_R 4 
 #define MAX_LENGTH	15
 
 int menu(void);
@@ -16,14 +17,19 @@ void AnadirUsuario(Usuario *u);
 void MostrarUsuarios ();
 void AnadirInstalacion(Instalacion *u);
 void MostrarInstalaciones();
+void HacerReserva(Reserva *r);
+void MostrarReservas();
 
 int main (void)
 {
 	int option;
 	int total = 0;
 	int total_int = 0;
+	int total_r =0;
+
 	Usuario usuarios [MAX_USUARIOS];
 	Instalacion instalaciones [MAX_INST];
+	Reserva reservas [MAX_R];
 
 do
 	{
@@ -55,6 +61,21 @@ do
 
 			case 6: 
 				break;
+
+			case 7: 
+				{
+					HacerReserva(&reservas[total_r]);
+					total_r ++;
+				} 
+				break;
+
+			case 8: MostrarReservas(reservas,total_r);
+				break;
+
+			case 9: 
+				break;
+
+
 
 
 		}
@@ -156,6 +177,72 @@ void MostrarInstalaciones(Instalacion ins[], int total_int)
 	printf("------------------------------\n");
 }
 
+void HacerReserva(Reserva *r)
+{
+	char str[MAX_LENGTH];
+	char frmt_str[MAX_LENGTH]; 
+
+	printf("Ha elegido hacer una reserva :  \n" );
+
+	printf("Introduce tu nombre de usuario : \n ");
+
+	printf("Nombre: \n "); //HAY QUE AÑADIR AQUI UNA VALIDACION QUE COMPRUEBE SI EXISTE
+	fgets(str, MAX_LENGTH, stdin);
+	clear_if_needed(str);
+
+
+	//Para guardar en memoria algo que no sabemos cuanto ocupa.
+	sscanf(str, "%s", frmt_str); //eliminar el \n final. Cogemos la entrada y lo convertimos en String
+
+	//reservar la memoria justa para la cadena almacenada
+	r->nombre_usuario = (char *)malloc((strlen(frmt_str) + 1) * sizeof(char)); //strlen() da la longitud en bytes
+																		//Siempre reservo el (tamaño +1)
+
+
+	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
+
+	strcpy(r->nombre_usuario, frmt_str); //Guardar(aqui, lo que esta aqui)
+
+	printf("Introduce el nombre de la instalacion que quieres reservar : \n ");
+
+	printf("Nombre: \n "); //HAY QUE AÑADIR AQUI UNA VALIDACION QUE COMPRUEBE SI EXISTE
+	fgets(str, MAX_LENGTH, stdin);
+	clear_if_needed(str);
+
+
+	//Para guardar en memoria algo que no sabemos cuanto ocupa.
+	sscanf(str, "%s", frmt_str); //eliminar el \n final. Cogemos la entrada y lo convertimos en String
+
+	//reservar la memoria justa para la cadena almacenada
+	r->nombre_instalacion = (char *)malloc((strlen(frmt_str) + 1) * sizeof(char)); //strlen() da la longitud en bytes
+																		//Siempre reservo el (tamaño +1)
+
+
+	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
+
+	strcpy(r->nombre_instalacion, frmt_str); //Guardar(aqui, lo que esta aqui)
+
+
+
+}
+
+void MostrarReservas(Reserva r[], int total_r)
+{
+
+
+	int i;
+
+	printf("Listado de reservas realizadas: \n\n");	
+	for (i = 0; i < total_r ; i++)
+	{
+		
+		printf("Nombre de usuario: %s; Instalaion reservada: %s\n ", r[i].nombre_usuario,r[i].nombre_instalacion);
+
+		printf("\n");
+	}
+	printf("------------------------------\n");
+}
+
 int menu(void)
 {
 	char str[MAX_LENGTH];
@@ -169,6 +256,10 @@ int menu(void)
 		printf("\t4. Registrar nueva instalacion\n");
 		printf("\t5. Imprimir listado de las instalaciones disponibles \n");
 		printf("\t6. Dar de baja una instalacion\n");
+		printf("\t7. Realizar una reserva \n");
+		printf("\t8. Imprimir listado de las reservas realizadas \n");
+		printf("\t9. Dar de baja una reserva\n");
+		
 		
 
 		printf("\n");
@@ -178,7 +269,7 @@ int menu(void)
 		clear_if_needed(str);
 		len = sscanf(str, "%d", &option);
 		printf("\n");
-	} while ((len == 0 && str[0] != 'e') || (len > 0 && (option > 6 || option < 1)));
+	} while ((len == 0 && str[0] != 'e') || (len > 0 && (option > 9 || option < 1)));
 
 	return (str[0] == 'e')?0:option;
 }
