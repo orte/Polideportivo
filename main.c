@@ -339,6 +339,8 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 
 	strcpy(r->nombre_instalacion, frmt_str_); //Guardar(aqui, lo que esta aqui)
 
+	setFecha(r)
+
 	}
 }
 	else
@@ -362,6 +364,12 @@ void MostrarReservas(Reserva r[], int total_r)
 	{
 		
 		printf("Nombre de usuario: %s; Instalaion reservada: %s\n ", r[i].nombre_usuario,r[i].nombre_instalacion);
+		struct tm *tlocal = r[i].Fecha;
+		char output[128];
+        strftime(output,128,"%d/%m/%y %H:%M:%S",tlocal);
+        printf("Fecha :%s\n",output);
+
+		
 
 		printf("\n");
 	}
