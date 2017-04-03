@@ -16,7 +16,27 @@
   //escribir en fichero un string 
   fprintf(f, "Usuarios : \n" );
   
-    fprintf(f, " Nombre : %s\t \t Apellido 1 : %s \t\t Apellido 2 : %s\t\t", nombre,ap1,ap2); //Escribir en fichero
+    fprintf(f, " Nombre : %s\t \t Apellido 1 : %s \t\t Apellido 2 : %s\n", nombre,ap1,ap2); //Escribir en fichero
+  
+  //cerrar fichero
+  fclose(f);
+  
+  return 0;
+
+ }
+
+ int EscribirInstalacion(char *nom) 
+  {
+  FILE* f; //file pointer
+  char* nombre=nom;
+  
+  //abrir fichero para escritura "w"
+  f = fopen("Instalaciones.txt", "w");
+  
+  //escribir en fichero un string 
+  fprintf(f, "Instalaciones : \n" );
+  
+  fprintf(f, " %s\n "  , nombre); //Escribir en fichero
   
   //cerrar fichero
   fclose(f);

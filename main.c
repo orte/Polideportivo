@@ -4,6 +4,7 @@
 #include "Leer/Leer.h"
 #include "Escribir/Escribir.h"
 
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -211,12 +212,17 @@ void MostrarUsuarios(Usuario u[], int total)
 		printf("\n");
 	}
 	printf("------------------------------\n");
+
+
+	printf("Ahora haremos lo mismo pero leeremos de fichero \n");
+	LeerUsuarios();
 }
 
 void AnadirInstalacion (Instalacion *ins)
 {
 	char str[MAX_LENGTH];
 	char frmt_str[MAX_LENGTH]; 
+	char nombre[MAX_LENGTH]; 
 
 	printf("Ha elegido añadir una nueva instalacion :  \n" );
 
@@ -238,6 +244,11 @@ void AnadirInstalacion (Instalacion *ins)
 	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
 
 	strcpy(ins->nombre, frmt_str); //Guardar(aqui, lo que esta aqui)
+	strcpy(nombre, frmt_str); 
+	clear_if_needed(frmt_str);
+
+
+	EscribirInstalacion(nombre);
 
 }
 
@@ -256,6 +267,10 @@ void MostrarInstalaciones(Instalacion ins[], int total_int)
 		printf("\n");
 	}
 	printf("------------------------------\n");
+
+	printf("Ahora realizaremos lo mismo con ficheros \n");
+
+	LeerInstalaciones();
 }
 
 void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total_int)

@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-#define MAX_NUM 10
 
 
   int EscribirUsuario(char *nom, char *ap_1, char *ap_2) 
@@ -23,4 +22,25 @@
   
   return 0;
 
+ }
+
+ int EscribirInstalacion(char *nom) 
+  {
+  FILE* f; //file pointer
+  char* nombre=nom;
+  
+  //abrir fichero para escritura "w"
+  f = fopen("Instalaciones.txt", "w");
+  
+  //escribir en fichero un string 
+  fprintf(f, "Instalaciones : \n" );
+  
+  fprintf(f, " %s\n "  , nombre); //Escribir en fichero
+  
+  //cerrar fichero
+  fclose(f);
+  
+  return 0;
 }
+
+ 

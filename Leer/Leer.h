@@ -2,5 +2,6 @@
 #define LEER_H_
 
 
-int LeerUsuario(Reserva *r);
+int LeerUsuarios();
+int LeerInstalaciones();
 #endif
