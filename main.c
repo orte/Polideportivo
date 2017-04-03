@@ -13,7 +13,7 @@
 
 int menu(void);
 void clear_if_needed(char *str);
-void AnadirUsuario(Usuario *u);
+void AnadirUsuario(Usuario *u, int total);
 void MostrarUsuarios ();
 void AnadirInstalacion(Instalacion *u);
 void MostrarInstalaciones();
@@ -38,7 +38,7 @@ do
 		{
 			case 1: 
 				{
-					AnadirUsuario(&usuarios[total]);
+					AnadirUsuario(&usuarios[total],total);
 					total++;
 				} 
 				break;
@@ -89,10 +89,11 @@ do
 }
 
 
-void AnadirUsuario(Usuario *u)
+void AnadirUsuario(Usuario *u, int total)
 {
 	char str[MAX_LENGTH];
-	char frmt_str[MAX_LENGTH]; 
+	char frmt_str[MAX_LENGTH];
+	int id_ref= 0; 
 
 	printf("Ha elegido añadir un nuevo Usuario :  \n" );
 
@@ -114,6 +115,26 @@ void AnadirUsuario(Usuario *u)
 	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
 
 	strcpy(u->nombre, frmt_str); //Guardar(aqui, lo que esta aqui)
+
+	 int i ;
+for (i = 0; i < total; i++)
+	{
+		
+		printf("Nombre: %s\n", u[i].id_us);
+
+		if(u[i].id_us>id_ref)
+		{
+			id_ref=u[i].id_us;
+		}
+		
+	}	
+	int nuevo_id= id_ref++;
+
+u->id_us= &nuevo_id;
+
+
+//ESTA POR TERMINAR ,FALTA ARREGLARLO.
+
 	
 }
 void MostrarUsuarios(Usuario u[], int total)
@@ -126,6 +147,7 @@ void MostrarUsuarios(Usuario u[], int total)
 	{
 		
 		printf("Nombre: %s\n", u[i].nombre);
+		printf("ID: %s\n", u[i].id_us);
 
 		printf("\n");
 	}
