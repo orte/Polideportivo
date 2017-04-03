@@ -115,12 +115,52 @@ void AnadirUsuario(Usuario *u, int total)
 	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
 
 	strcpy(u->nombre, frmt_str); //Guardar(aqui, lo que esta aqui)
+	clear_if_needed(frmt_str);
+
+	printf("Apellido 1: \n ");
+	fgets(str, MAX_LENGTH, stdin);
+	clear_if_needed(str);
+
+
+	//Para guardar en memoria algo que no sabemos cuanto ocupa.
+	sscanf(str, "%s", frmt_str); //eliminar el \n final. Cogemos la entrada y lo convertimos en String
+
+	//reservar la memoria justa para la cadena almacenada
+	u->ap1 = (char *)malloc((strlen(frmt_str) + 1) * sizeof(char)); //strlen() da la longitud en bytes
+																		//Siempre reservo el (tamaño +1)
+
+
+	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
+
+	strcpy(u->ap1, frmt_str); //Guardar(aqui, lo que esta aqui)
+	clear_if_needed(frmt_str);
+
+	printf("Apellido 2: \n ");
+	fgets(str, MAX_LENGTH, stdin);
+	clear_if_needed(str);
+
+
+	//Para guardar en memoria algo que no sabemos cuanto ocupa.
+	sscanf(str, "%s", frmt_str); //eliminar el \n final. Cogemos la entrada y lo convertimos en String
+
+	//reservar la memoria justa para la cadena almacenada
+	u->ap2 = (char *)malloc((strlen(frmt_str) + 1) * sizeof(char)); //strlen() da la longitud en bytes
+																		//Siempre reservo el (tamaño +1)
+
+
+	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
+
+	strcpy(u->ap2, frmt_str); //Guardar(aqui, lo que esta aqui)
+	clear_if_needed(frmt_str);
+
+
+
 
 	 int i ;
 for (i = 0; i < total; i++)
 	{
 		
-		printf("Nombre: %s\n", u[i].id_us);
+		printf("ID: %d\n", u[i].id_us);
 
 		if(u[i].id_us>id_ref)
 		{
@@ -129,8 +169,11 @@ for (i = 0; i < total; i++)
 		
 	}	
 	int nuevo_id= id_ref++;
+	printf("%d\n",nuevo_id );
+	
+	//u->id_us=nuevo_id; //Da error ,no se porque
 
-u->id_us= &nuevo_id;
+	
 
 
 //ESTA POR TERMINAR ,FALTA ARREGLARLO.
@@ -147,6 +190,8 @@ void MostrarUsuarios(Usuario u[], int total)
 	{
 		
 		printf("Nombre: %s\n", u[i].nombre);
+		printf("Ap1: %s\n", u[i].ap1);
+		printf("Ap2: %s\n", u[i].ap2);
 		printf("ID: %s\n", u[i].id_us);
 
 		printf("\n");
