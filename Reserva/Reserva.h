@@ -7,7 +7,8 @@ typedef struct
 	char *identificador ; //Provisional, lo suyo seria poner un atributo hora y localizar cada reserva por su hora y usuario.
 	char *nombre_usuario ; //Luego se hara con el int pero de momento para probar lo hacemos asi.
 	char *nombre_instalacion;
+	struct tm *Fecha;
 } Reserva;
 
-
+int setFecha(Reserva *r);
 #endif

@@ -1,10 +1,13 @@
 #include "Usuario/Usuario.h"
 #include "Reserva/Reserva.h"
 #include "Instalacion/Instalacion.h"
+#include "Leer/Leer.h"
+#include "Escribir/Escribir.h"
 
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define MAX_USUARIOS 7 // Temporal, para comprobar la correcta creacion de alumnos. Al hacer ficheros la eiminaremos.
 #define MAX_INST 7
@@ -95,6 +98,11 @@ void AnadirUsuario(Usuario *u, int total)
 	char frmt_str[MAX_LENGTH];
 	int id_ref= 0; 
 
+	char nombre[MAX_LENGTH];
+	char ap1[MAX_LENGTH];
+	char ap2[MAX_LENGTH];
+
+
 	printf("Ha elegido añadir un nuevo Usuario :  \n" );
 
 	printf("Introduzca su nombre : \n ");
@@ -115,6 +123,7 @@ void AnadirUsuario(Usuario *u, int total)
 	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
 
 	strcpy(u->nombre, frmt_str); //Guardar(aqui, lo que esta aqui)
+	strcpy(nombre, frmt_str); 
 	clear_if_needed(frmt_str);
 
 	printf("Apellido 1: \n ");
@@ -133,6 +142,7 @@ void AnadirUsuario(Usuario *u, int total)
 	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
 
 	strcpy(u->ap1, frmt_str); //Guardar(aqui, lo que esta aqui)
+	strcpy(ap1, frmt_str); 
 	clear_if_needed(frmt_str);
 
 	printf("Apellido 2: \n ");
@@ -151,6 +161,7 @@ void AnadirUsuario(Usuario *u, int total)
 	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
 
 	strcpy(u->ap2, frmt_str); //Guardar(aqui, lo que esta aqui)
+	strcpy(ap2, frmt_str); 
 	clear_if_needed(frmt_str);
 
 
@@ -170,6 +181,9 @@ for (i = 0; i < total; i++)
 	}	
 	int nuevo_id= id_ref++;
 	printf("%d\n",nuevo_id );
+
+EscribirUsuario(nombre,ap1,ap2);
+
 	
 	//u->id_us=nuevo_id; //Da error ,no se porque
 
@@ -305,9 +319,6 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 	for (i = 0; i < total; i++)
 	{
 		
-		printf("Nombre de la i: %s\n", ins[i].nombre);
-
-		printf("str %s\n", frmt_str_ );
 
 		resultado_2 = strcmp(ins[i].nombre, frmt_str_);
 
@@ -339,7 +350,7 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 
 	strcpy(r->nombre_instalacion, frmt_str_); //Guardar(aqui, lo que esta aqui)
 
-	setFecha(r)
+	setFecha(r);
 
 	}
 }
@@ -363,7 +374,7 @@ void MostrarReservas(Reserva r[], int total_r)
 	for (i = 0; i < total_r ; i++)
 	{
 		
-		printf("Nombre de usuario: %s; Instalaion reservada: %s\n ", r[i].nombre_usuario,r[i].nombre_instalacion);
+		printf("Nombre de usuario: %s; Instalacion reservada: %s\n ", r[i].nombre_usuario,r[i].nombre_instalacion);
 		struct tm *tlocal = r[i].Fecha;
 		char output[128];
         strftime(output,128,"%d/%m/%y %H:%M:%S",tlocal);
