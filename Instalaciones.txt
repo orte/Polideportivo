@@ -2,4 +2,9 @@
   Gimnasio
   Sala_01
   Sala_03
+  Sala_02
+  5
+  Sauna
+  Fronton
+  Sala_04
  

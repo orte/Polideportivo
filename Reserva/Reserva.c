@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <time.h>
 
-struct tm setFecha (Reserva *r) 
+struct tm* setFecha (Reserva *r) 
 {
 
        time_t tiempo = time(0);

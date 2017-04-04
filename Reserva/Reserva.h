@@ -8,7 +8,8 @@ typedef struct
 	char *nombre_usuario ; //Luego se hara con el int pero de momento para probar lo hacemos asi.
 	char *nombre_instalacion;
 	struct tm *Fecha;
+	float duracion;
 } Reserva;
 
-struct tm setFecha(Reserva *r);
+struct tm* setFecha(Reserva *r);
 #endif

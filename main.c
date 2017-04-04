@@ -346,6 +346,16 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 	if(resultado_2==0)
 	{
 
+		printf("Introduzca por cuanto tiempo utilizara la instalacion (En horas.\n");
+		printf("Duracion : \n");
+
+		fgets(str, MAX_LENGTH, stdin);
+		clear_if_needed(str);
+		sscanf(str, "%f", &r->duracion);
+
+		
+
+
 		printf("La reserva se ha realizado correctamente!\n");
 
 	r->nombre_usuario = (char *)malloc((strlen(frmt_str) + 1) * sizeof(char)); //strlen() da la longitud en bytes
@@ -373,11 +383,12 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
      strftime(output,128,"%d/%m/%y %H:%M:%S",tlocal);
      
 
-
-	EscribirReserva(frmt_str,frmt_str_,output[128]);
+	float dur=1.5;
+	EscribirReserva(frmt_str,frmt_str_,output,dur);
 
 	}
 }
+
 	else
 	{
 		printf("Los datos son incorrectos.\n");
@@ -402,7 +413,7 @@ void MostrarReservas(Reserva r[], int total_r)
 		struct tm *tlocal = r[i].Fecha;
 		char output[128];
         strftime(output,128,"%d/%m/%y %H:%M:%S",tlocal);
-        printf("Fecha :%s\n",output);
+        printf("Fecha :%s\t \t Duracion:%d\n horas",output,r[i].duracion);
 
 		
 
