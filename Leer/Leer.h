@@ -4,4 +4,5 @@
 
 int LeerUsuarios();
 int LeerInstalaciones();
+int LeerReservas();
 #endif

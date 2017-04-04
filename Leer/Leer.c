@@ -54,3 +54,8 @@ int LeerInstalaciones(void)
   return 0;
 }
 
+int LeerReservas()
+{
+  
+}
+

@@ -7,3 +7,8 @@
  Nombre : Amaia	 	 Apellido 1 : Garcia 		 Apellido 2 : Eizmendi
  Nombre : Jaime	 	 Apellido 1 : Rodriguez 		 Apellido 2 : Perez
  Nombre : Garazi	 	 Apellido 1 : Rodriguez 		 Apellido 2 : Narro
+ Nombre : Nere	 	 Apellido 1 : Romero 		 Apellido 2 : Betelu
+ Nombre : Imanol	 	 Apellido 1 : Echeverria 		 Apellido 2 : Garcia
+ Nombre : Be¤at	 	 Apellido 1 : Galdos 		 Apellido 2 : Perez
+ Nombre : Iker	 	 Apellido 1 : Latiegi 		 Apellido 2 : Garcia
+ Nombre : Ana	 	 Apellido 1 : Laboa 		 Apellido 2 : Sanchez

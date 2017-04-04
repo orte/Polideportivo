@@ -1,1 +1,5 @@
  Nombre de usuario : Garazi	 	 Nombre de instalacion : Sala_04 	 	 Fecha: 04/04/17 12:01:08 		 Duracion: 1.500000
+ Nombre de usuario : Nere	 	 Nombre de instalacion : Sala_08 	 	 Fecha: 04/04/17 14:25:11 		 Duracion: 1.500000 horas 
+ Nombre de usuario : Imanol	 	 Nombre de instalacion : Sala_06 	 	 Fecha: 04/04/17 14:30:25 		 Duracion: 1.500000 horas 
+ Nombre de usuario : Be¤at	 	 Nombre de instalacion : Sala_05 	 	 Fecha: 04/04/17 14:31:56 		 Duracion: 1.500000 horas 
+ Nombre de usuario : Ana	 	 Nombre de instalacion : Sala_10 	 	 Fecha: 04/04/17 14:35:59 		 Duracion: 2.000000 horas 

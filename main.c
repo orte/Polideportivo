@@ -23,6 +23,10 @@ void AnadirInstalacion(Instalacion *u);
 void MostrarInstalaciones();
 void HacerReserva(Reserva *r,Usuario *u,int total,Instalacion *i, int total_int);
 void MostrarReservas();
+int EliminarUsuario();
+int EliminarInstalacion();
+int EliminarReserva();
+
 
 int main (void)
 {
@@ -50,7 +54,7 @@ do
 			case 2: MostrarUsuarios(usuarios,total);
 				break;
 
-			case 3: 
+			case 3: EliminarUsuario();
 				break;
 
 			case 4: 
@@ -63,7 +67,7 @@ do
 			case 5: MostrarInstalaciones(instalaciones,total_int);
 				break;
 
-			case 6: 
+			case 6: EliminarInstalacion();
 				break;
 
 			case 7: 
@@ -76,7 +80,7 @@ do
 			case 8: MostrarReservas(reservas,total_r);
 				break;
 
-			case 9: 
+			case 9: EliminarReserva();
 				break;
 
 
@@ -187,8 +191,6 @@ EscribirUsuario(nombre,ap1,ap2);
 
 	
 	//u->id_us=nuevo_id; //Da error ,no se porque
-
-	
 
 
 //ESTA POR TERMINAR ,FALTA ARREGLARLO.
@@ -349,10 +351,13 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 		printf("Introduzca por cuanto tiempo utilizara la instalacion (En horas.\n");
 		printf("Duracion : \n");
 
+		float dur;
+
 		fgets(str, MAX_LENGTH, stdin);
 		clear_if_needed(str);
 		sscanf(str, "%f", &r->duracion);
-
+		sscanf(str, "%f", &dur);
+		
 		
 
 
@@ -383,7 +388,6 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
      strftime(output,128,"%d/%m/%y %H:%M:%S",tlocal);
      
 
-	float dur=1.5;
 	EscribirReserva(frmt_str,frmt_str_,output,dur);
 
 	}
@@ -413,13 +417,15 @@ void MostrarReservas(Reserva r[], int total_r)
 		struct tm *tlocal = r[i].Fecha;
 		char output[128];
         strftime(output,128,"%d/%m/%y %H:%M:%S",tlocal);
-        printf("Fecha :%s\t \t Duracion:%d\n horas",output,r[i].duracion);
+        printf("Fecha :%s\t \t Duracion:%f\n horas",output,r[i].duracion);
 
 		
 
 		printf("\n");
 	}
 	printf("------------------------------\n");
+
+
 }
 
 int menu(void)
@@ -460,4 +466,19 @@ void clear_if_needed(char *str)
 		int c;    
     	while ( (c = getchar()) != EOF && c != '\n');
     }
+}
+
+int EliminarUsuario()
+{
+	return 0;
+}
+
+int EliminarInstalacion()
+{
+	return 0;
+}
+
+int EliminarReserva()
+{
+	return 0;
 }
