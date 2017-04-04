@@ -10,5 +10,5 @@ typedef struct
 	struct tm *Fecha;
 } Reserva;
 
-int setFecha(Reserva *r);
+struct tm setFecha(Reserva *r);
 #endif

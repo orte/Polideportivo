@@ -367,6 +367,15 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 
 	setFecha(r);
 
+	 time_t tiempo = time(0);
+     struct tm *tlocal = localtime(&tiempo);
+     char output[128];
+     strftime(output,128,"%d/%m/%y %H:%M:%S",tlocal);
+     
+
+
+	EscribirReserva(frmt_str,frmt_str_,output[128]);
+
 	}
 }
 	else
