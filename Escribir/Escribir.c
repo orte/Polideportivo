@@ -18,7 +18,7 @@
   //escribir en fichero un string 
   fprintf(f, "Usuarios : \n" );
   }
-    fprintf(f, " Nombre : %s\t \t Apellido 1 : %s \t\t Apellido 2 : %s\n", nombre,ap1,ap2); //Escribir en fichero
+    fprintf(f, "%s\t \t  %s \t\t  %s\n", nombre,ap1,ap2); //Escribir en fichero
   
   //cerrar fichero
   fclose(f);
