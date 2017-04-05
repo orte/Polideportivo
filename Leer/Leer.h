@@ -3,6 +3,7 @@
 
 
 int LeerUsuarios();
+int SacarUsuarios();
 int LeerInstalaciones();
 int LeerReservas();
 #endif
