@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include "Polideportivo/Usuario/Usuario.h"
-
 
 #define MAX_NUM 10
 
@@ -81,36 +79,6 @@ int LeerReservas()
   return 0;
 }
 
-int SacarUsuarios()
-{
-
-  char name[30];
-  char ap1[30];
-  char ap2[30];
-
-  Usuario *u;
-
-  int num_l=0;
-  FILE  *f;
-  f = fopen("Usuarios.txt","r");  
- 
-    
-  while 
-    (fscanf(f,"%s %s %s",name,ap1,ap2) != EOF)  //&ID
-  {/*Leer datos */
-       u->nombre=name;
-       u->ap1=ap1;
-       u->ap=ap2;
-       num_l++;
-
-  }
-  fclose(f); 
 
 
-  MostrarUsuarios(Usuario u[],num_l-1);
-
-
-  return 0;
-
-}
 
