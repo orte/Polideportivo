@@ -101,60 +101,6 @@ do
 
 
 
-void AnadirInstalacion (Instalacion *ins)
-{
-	char str[MAX_LENGTH];
-	char frmt_str[MAX_LENGTH]; 
-	char nombre[MAX_LENGTH]; 
-
-	printf("Ha elegido añadir una nueva instalacion :  \n" );
-
-	printf("Introduzca el nombre de la instalacion : \n ");
-
-	printf("Nombre: \n ");
-	fgets(str, MAX_LENGTH, stdin);
-	clear_if_needed(str);
-
-
-	//Para guardar en memoria algo que no sabemos cuanto ocupa.
-	sscanf(str, "%s", frmt_str); //eliminar el \n final. Cogemos la entrada y lo convertimos en String
-
-	//reservar la memoria justa para la cadena almacenada
-	ins->nombre = (char *)malloc((strlen(frmt_str) + 1) * sizeof(char)); //strlen() da la longitud en bytes
-																		//Siempre reservo el (tamaño +1)
-
-
-	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
-
-	strcpy(ins->nombre, frmt_str); //Guardar(aqui, lo que esta aqui)
-	strcpy(nombre, frmt_str); 
-	clear_if_needed(frmt_str);
-
-
-	EscribirInstalacion(nombre);
-
-}
-
-void MostrarInstalaciones(Instalacion ins[], int total_int)
-{
-
-
-	int i;
-
-	printf("Listado de instalaciones registradas: \n\n");	
-	for (i = 0; i < total_int ; i++)
-	{
-		
-		printf("Nombre: %s\n", ins[i].nombre);
-
-		printf("\n");
-	}
-	printf("------------------------------\n");
-
-	printf("Ahora realizaremos lo mismo con ficheros \n");
-
-	LeerInstalaciones();
-}
 
 void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total_int)
 {
@@ -341,15 +287,7 @@ void clear_if_needed(char *str)
 
 
 //FALTA HACER ESTO UNA VEZ QUE HAYAMOS HECHO EL METODO DE LECTURA (con sentio) DE FICHEROS ~ J
-int EliminarUsuario()
-{
-	return 0;
-}
 
-int EliminarInstalacion()
-{
-	return 0;
-}
 
 int EliminarReserva()
 {
