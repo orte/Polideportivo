@@ -1,9 +1,22 @@
 #ifndef LEER_H_
 #define LEER_H_
 
+#ifdef __cplusplus
 
-int LeerUsuarios();
-int SacarUsuarios();
-int LeerInstalaciones();
+extern "C" {
+	#endif
+	#include <stdio.h>
+	#include <stdlib.h>
+
+
+
+
+
+
 int LeerReservas();
+
+	#ifdef __cplusplus
+			}
+
+#endif
 #endif

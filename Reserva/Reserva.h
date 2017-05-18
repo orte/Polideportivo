@@ -1,5 +1,11 @@
 #ifndef RESERVA_H_
 #define RESERVA_H_
+#ifdef __cplusplus
+
+extern "C" {
+#endif
+	#include <stdio.h>
+	#include <stdlib.h>
 
 
 typedef struct 
@@ -12,4 +18,10 @@ typedef struct
 } Reserva;
 
 struct tm* setFecha(Reserva *r);
+
+
+		#ifdef __cplusplus
+		}
+#endif
+
 #endif

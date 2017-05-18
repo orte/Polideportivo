@@ -23,7 +23,8 @@ void AnadirInstalacion(Instalacion *u);
 void MostrarInstalaciones();
 void HacerReserva(Reserva *r,Usuario *u,int total,Instalacion *i, int total_int);
 void MostrarReservas();
-int EliminarUsuario();
+int EliminarUsuario(); //Falta
+
 int EliminarInstalacion();
 int EliminarReserva();
 
@@ -97,128 +98,8 @@ do
 }
 
 
-void AnadirUsuario(Usuario *u, int total)
-{
-	char str[MAX_LENGTH];
-	char frmt_str[MAX_LENGTH];
-	int id_ref= 0; 
-
-	char nombre[MAX_LENGTH];
-	char ap1[MAX_LENGTH];
-	char ap2[MAX_LENGTH];
 
 
-	printf("Ha elegido añadir un nuevo Usuario :  \n" );
-
-	printf("Introduzca su nombre : \n ");
-
-	printf("Nombre: \n ");
-	fgets(str, MAX_LENGTH, stdin);
-	clear_if_needed(str);
-
-
-	//Para guardar en memoria algo que no sabemos cuanto ocupa.
-	sscanf(str, "%s", frmt_str); //eliminar el \n final. Cogemos la entrada y lo convertimos en String
-
-	//reservar la memoria justa para la cadena almacenada
-	u->nombre = (char *)malloc((strlen(frmt_str) + 1) * sizeof(char)); //strlen() da la longitud en bytes
-																		//Siempre reservo el (tamaño +1)
-
-
-	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
-
-	strcpy(u->nombre, frmt_str); //Guardar(aqui, lo que esta aqui)
-	strcpy(nombre, frmt_str); 
-	clear_if_needed(frmt_str);
-
-	printf("Apellido 1: \n ");
-	fgets(str, MAX_LENGTH, stdin);
-	clear_if_needed(str);
-
-
-	//Para guardar en memoria algo que no sabemos cuanto ocupa.
-	sscanf(str, "%s", frmt_str); //eliminar el \n final. Cogemos la entrada y lo convertimos en String
-
-	//reservar la memoria justa para la cadena almacenada
-	u->ap1 = (char *)malloc((strlen(frmt_str) + 1) * sizeof(char)); //strlen() da la longitud en bytes
-																		//Siempre reservo el (tamaño +1)
-
-
-	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
-
-	strcpy(u->ap1, frmt_str); //Guardar(aqui, lo que esta aqui)
-	strcpy(ap1, frmt_str); 
-	clear_if_needed(frmt_str);
-
-	printf("Apellido 2: \n ");
-	fgets(str, MAX_LENGTH, stdin);
-	clear_if_needed(str);
-
-
-	//Para guardar en memoria algo que no sabemos cuanto ocupa.
-	sscanf(str, "%s", frmt_str); //eliminar el \n final. Cogemos la entrada y lo convertimos en String
-
-	//reservar la memoria justa para la cadena almacenada
-	u->ap2 = (char *)malloc((strlen(frmt_str) + 1) * sizeof(char)); //strlen() da la longitud en bytes
-																		//Siempre reservo el (tamaño +1)
-
-
-	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
-
-	strcpy(u->ap2, frmt_str); //Guardar(aqui, lo que esta aqui)
-	strcpy(ap2, frmt_str); 
-	clear_if_needed(frmt_str);
-
-
-
-
-	 int i ;
-for (i = 0; i < total; i++)
-	{
-		
-		printf("ID: %d\n", u[i].id_us);
-
-		if(u[i].id_us>id_ref)
-		{
-			id_ref=u[i].id_us;
-		}
-		
-	}	
-	int nuevo_id= id_ref++;
-	printf("%d\n",nuevo_id );
-
-EscribirUsuario(nombre,ap1,ap2);
-
-	
-	//u->id_us=nuevo_id; //Da error ,no se porque
-
-
-//ESTA POR TERMINAR ,FALTA ARREGLARLO.
-
-	
-}
-void MostrarUsuarios(Usuario u[], int total)
-{
-
-	int i;
-
-	printf("Listado de usuarios registrados: \n\n");	
-	for (i = 0; i < total; i++)
-	{
-		
-		printf("Nombre: %s\n", u[i].nombre);
-		printf("Ap1: %s\n", u[i].ap1);
-		printf("Ap2: %s\n", u[i].ap2);
-		printf("ID: %s\n", u[i].id_us);
-
-		printf("\n");
-	}
-	printf("------------------------------\n");
-
-
-	printf("Ahora haremos lo mismo pero leeremos de fichero \n");
-	LeerUsuarios();
-}
 
 void AnadirInstalacion (Instalacion *ins)
 {
@@ -315,18 +196,14 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 	if(resultado==0)
 	{
 		printf("El nombre de usuario es correcto\n" );
-		//Para guardar en memoria algo que no sabemos cuanto ocupa.
-	 //eliminar el \n final. Cogemos la entrada y lo convertimos en String
-
-	//reservar la memoria justa para la cadena almacenada
 
 	printf("Introduce el nombre de la instalacion que quieres reservar : \n ");
 
 	printf("Nombre: \n "); //HAY QUE AÑADIR AQUI UNA VALIDACION QUE COMPRUEBE SI EXISTE
 	fgets(str, MAX_LENGTH, stdin);
 	clear_if_needed(str);
-//Para guardar en memoria algo que no sabemos cuanto ocupa.
-	sscanf(str, "%s", frmt_str_); //eliminar el \n final. Cogemos la entrada y lo convertimos en String
+
+	sscanf(str, "%s", frmt_str_); 
 
 
 	//Como todos los datos estan bien hacemos la reserva
@@ -372,13 +249,10 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 	strcpy(r->nombre_usuario, frmt_str); //Guardar(aqui, lo que esta aqui)
 
 	//reservar la memoria justa para la cadena almacenada
-	r->nombre_instalacion = (char *)malloc((strlen(frmt_str_) + 1) * sizeof(char)); //strlen() da la longitud en bytes
-																		//Siempre reservo el (tamaño +1)
+	r->nombre_instalacion = (char *)malloc((strlen(frmt_str_) + 1) * sizeof(char)); 
 
-
-	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
-
-	strcpy(r->nombre_instalacion, frmt_str_); //Guardar(aqui, lo que esta aqui)
+	
+	strcpy(r->nombre_instalacion, frmt_str_);
 
 	setFecha(r);
 
@@ -397,9 +271,6 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 	{
 		printf("Los datos son incorrectos.\n");
 	}
-
-
-
 
 }
 
@@ -468,6 +339,8 @@ void clear_if_needed(char *str)
     }
 }
 
+
+//FALTA HACER ESTO UNA VEZ QUE HAYAMOS HECHO EL METODO DE LECTURA (con sentio) DE FICHEROS ~ J
 int EliminarUsuario()
 {
 	return 0;

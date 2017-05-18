@@ -12,4 +12,6 @@
   Sala_05
   Sala_09
   Sala_10
+  Pisina_02
+  Gimnasio
  
