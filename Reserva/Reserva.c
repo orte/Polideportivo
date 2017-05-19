@@ -3,6 +3,13 @@
 #include <stdio.h>
 #include <time.h>
 
+
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_LENGTH	15
+
 struct tm* setFecha (Reserva *r) 
 {
 
