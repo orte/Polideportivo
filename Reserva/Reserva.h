@@ -24,6 +24,8 @@ struct tm* setFecha(Reserva *r);
 void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total_int);
 int EscribirReserva(char *nom_us, char *nom_ins,char fecha[128], float duracion);
 int LeerReservas();
+int EliminarReserva()
+;
 
 void MostrarReservas(Reserva r[], int total_r);
 void clear_if_needed(char *str);

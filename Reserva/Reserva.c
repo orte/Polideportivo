@@ -216,5 +216,10 @@ int LeerReservas()
 }
 
 
+int EliminarReserva()
+{
+	return 0;
+}
+
 
 
