@@ -6,6 +6,8 @@ extern "C" {
 #endif
 	#include <stdio.h>
 	#include <stdlib.h>
+	#include "../Instalacion/Instalacion.h"
+#include "../Usuario/Usuario.h"
 
 
 typedef struct 
@@ -18,6 +20,14 @@ typedef struct
 } Reserva;
 
 struct tm* setFecha(Reserva *r);
+struct tm* setFecha(Reserva *r);
+void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total_int);
+int EscribirReserva(char *nom_us, char *nom_ins,char fecha[128], float duracion);
+int LeerReservas();
+
+void MostrarReservas(Reserva r[], int total_r);
+void clear_if_needed(char *str);
+
 
 
 		#ifdef __cplusplus

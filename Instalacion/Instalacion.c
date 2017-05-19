@@ -98,8 +98,11 @@ int LeerInstalaciones(void)
   int num_lines = 0;
   
   //abrir fichero para lectura
-  f = fopen("Instalaciones.txt", "r");
-  
+	  f = fopen("Instalaciones.txt", "r"); 
+
+	 														//sscanf(str2, "%[^\n]s", string); (?)
+
+
   //leer mientras no se llegue al final del fichero EOF
   while ((c = fgetc(f)) != EOF)
     {
