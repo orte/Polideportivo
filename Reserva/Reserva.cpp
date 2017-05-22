@@ -28,8 +28,17 @@ struct tm* setFecha (Reserva *r)
 void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total_int)
 {
 	char str[MAX_LENGTH];
+	char nombre[MAX_LENGTH];
+	char nombre_aux[MAX_LENGTH];
 	char frmt_str[MAX_LENGTH]; 
 	char frmt_str_[MAX_LENGTH]; 
+
+
+
+	char nombre_auxaux[MAX_LENGTH];
+	char ap1_aux[MAX_LENGTH];
+	char ap2_aux[MAX_LENGTH];
+
 
 
 	printf("Ha elegido hacer una reserva :  \n" );
@@ -38,16 +47,14 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 
 	printf("Nombre: \n "); //HAY QUE AÑADIR AQUI UNA VALIDACION QUE COMPRUEBE SI EXISTE
 
-	fgets(str, MAX_LENGTH, stdin);
-	sscanf(str, "%s", frmt_str);
-	clear_if_needed(str);
-
+	cin >> nombre_aux;
 	int i ;
 	int resultado ;
 	int resultado_2;
 
 	//VALIDACION
-	for (i = 0; i < total; i++)
+
+/*for (i = 0; i < total; i++)
 	{
 		
 		printf("Nombre: %s\n", u[i].nombre);
@@ -61,10 +68,84 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 
 	}
 
+*/
 
+	ifstream salida;
+	salida.open("Usuarios.txt",ios::in);
+	
+
+if(salida.fail())
+	{
+		cout<< "Error al abrir el archivo" << endl;
+
+	}
+	else
+	{
+		
+		salida>>nombre;
+
+
+
+
+		while(!salida.eof())
+		{
+			salida>> ap1_aux >> ap2_aux;
+			cout<<"J";
+			if(strcmp(nombre,nombre_aux)==0)
+					{
+						cout<<"P";
+						resultado=0;
+					}
+
+		}
+		salida.close();
+	}
+
+	
 	if(resultado==0)
 	{
-		printf("El nombre de usuario es correcto\n" );
+
+			char nombrei_aux[MAX_LENGTH];
+			char nombrei[MAX_LENGTH];
+
+		cout<< "Usuario correcto" << endl;
+		ifstream salida_1;
+		cout<< "Ingrese ahora el nombre de la instalacion :" << endl;
+		cin >> nombrei;
+		salida.open("Instalaciones.txt",ios::in);
+	
+
+	if(salida.fail())
+	{
+		cout<< "Error al abrir el archivo" << endl;
+
+	}
+	else
+	{ 
+		char nombrei_aux[MAX_LENGTH];
+		
+		
+
+
+salida>>nombrei_aux;
+
+		while(!salida.eof())
+		{
+			salida>>nombrei_aux;
+
+		
+			if(strcmp(nombrei,nombrei_aux)==0)
+					{
+						cout<<"P";
+						resultado_2=0;
+					}
+
+		}
+		salida.close();
+	}
+
+
+		/**printf("El nombre de usuario es correcto\n" );
 
 	printf("Introduce el nombre de la instalacion que quieres reservar : \n ");
 
@@ -75,8 +156,7 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 	sscanf(str, "%s", frmt_str_); 
 
 
-	//Como todos los datos estan bien hacemos la reserva
-
+	
 	
 	//VALIDACION
 	for (i = 0; i < total; i++)
@@ -88,7 +168,7 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 		if ( resultado_2 ==0)
 			break;
 
-	}
+	}**/
 
 
 	if(resultado_2==0)
@@ -98,30 +178,30 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
 		printf("Duracion : \n");
 
 		float dur;
-
-		fgets(str, MAX_LENGTH, stdin);
-		clear_if_needed(str);
-		sscanf(str, "%f", &r->duracion);
-		sscanf(str, "%f", &dur);
+		char d_[MAX_LENGTH];
+		cin >> d_;  //fgets(str, MAX_LENGTH, stdin);
+		clear_if_needed(str);//
+		sscanf(d_, "%f", &r->duracion);
+		sscanf(d_, "%f", &dur);
 		
 		
 
 
 		printf("La reserva se ha realizado correctamente!\n");
 
-	r->nombre_usuario = (char *)malloc((strlen(frmt_str) + 1) * sizeof(char)); //strlen() da la longitud en bytes
+	r->nombre_usuario = (char *)malloc((strlen(nombre_aux) + 1) * sizeof(char)); //strlen() da la longitud en bytes
 																		//Siempre reservo el (tamaño +1)
 
 
 	//Para tal cosa reservame espacio = (tipo *) malloc((strlen(lo q quiero guardar)+1)* sizeof(tipo de var));
 
-	strcpy(r->nombre_usuario, frmt_str); //Guardar(aqui, lo que esta aqui)
+	strcpy(r->nombre_usuario, nombre_aux); //Guardar(aqui, lo que esta aqui)
 
 	//reservar la memoria justa para la cadena almacenada
-	r->nombre_instalacion = (char *)malloc((strlen(frmt_str_) + 1) * sizeof(char)); 
+	r->nombre_instalacion = (char *)malloc((strlen(nombrei) + 1) * sizeof(char)); 
 
 	
-	strcpy(r->nombre_instalacion, frmt_str_);
+	strcpy(r->nombre_instalacion, nombrei);
 
 	setFecha(r);
 
@@ -131,7 +211,7 @@ void HacerReserva(Reserva *r,Usuario u[],int total, Instalacion ins[], int total
      strftime(output,128,"%d/%m/%y %H:%M:%S",tlocal);
      
 
-	EscribirReserva(frmt_str,frmt_str_,output,dur);
+	EscribirReserva(nombre_aux,nombrei,output,dur);
 
 	}
 }
