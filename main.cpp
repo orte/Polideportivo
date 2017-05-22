@@ -21,7 +21,7 @@ void AnadirInstalacion(Instalacion *u);
 void MostrarInstalaciones();
 void HacerReserva(Reserva *r,Usuario *u,int total,Instalacion *i, int total_int);
 void MostrarReservas();
-int EliminarUsuario(); //Falta
+
 
 int EliminarInstalacion();
 int EliminarReserva();

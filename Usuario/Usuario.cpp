@@ -1,5 +1,7 @@
 #include "Usuario.h"
 #include <stdio.h>
+#include <iostream>
+#include <fstream>
 
 
 #define MAX_LENGTH	15
@@ -8,8 +10,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include <ifstream.h>
 
+
+using namespace std;
 
 
 void AnadirUsuario(Usuario *u, int total)
@@ -186,20 +189,65 @@ int EscribirUsuario(char *nom, char *ap_1, char *ap_2)
   return 0;
 }
 
-/**int EliminarUsuario()
+int EliminarUsuario()
 {
 	char nombre_aux[MAX_LENGTH];
+	char nombre_auxaux[MAX_LENGTH];
 	char ap1_aux[MAX_LENGTH];
 	char ap2_aux[MAX_LENGTH];
 
+
+
 	ifstream salida;
+	salida.open("Usuarios.txt",ios::in);
+
+	ofstream entrada;
+	entrada.open("temp.txt", ios::out);
+
+	if(salida.fail())
+	{
+		cout<< "Error al abrir el archivo" << endl;
+
+	}
+	else
+	{
+		cout<< "Introduce el nombre del usuario a borrar :" << endl;
+		cin >> nombre_auxaux;
+
+
+		salida>>nombre_aux;
+
+		while(!salida.eof())
+		{
+				salida>> ap1_aux >> ap2_aux;
+
+					if(strcmp(nombre_aux,nombre_auxaux)==0)
+					{
+						cout<< "ELIMINADO" << endl;
+					}
+					else
+						 {
+						 	entrada<<nombre_aux<< " " <<ap1_aux << " " << ap2_aux << " " << endl;
+						 }
+
+
+				salida>> nombre_aux;
+		}
+
+		entrada.close();
+		salida.close();
+
+		remove("Usuarios.txt");
+		rename ("temp.txt","Usuarios.txt");
+	}
+
+
 
 
 }
 
 
 
-**/
 
 
 

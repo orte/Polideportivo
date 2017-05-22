@@ -201,10 +201,10 @@ int LeerReservas()
   f = fopen("Reservas.txt", "r");
   
   //leer mientras no se llegue al final del fichero EOF
-  while ((c = fgetc(f)) != EOF)
+  while ((c = fgetc(f)) != EOF) // mientras el siguiente char del txt no sea End Of File..
     {
-      if (c == '\n')
-       num_lines++;  
+      if (c == '\n') //Si el siguiente caracter es un salto de linea..
+       num_lines++;  //Aumentar numlines...
       putchar(c);
     }
   //cerrar fichero

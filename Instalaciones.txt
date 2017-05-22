@@ -1,17 +1,12 @@
- Pisina
-  Gimnasio
-  Sala_01
-  Sala_03
-  Sala_02
-  5
-  Sauna
-  Fronton
-  Sala_04
-  Sala_08
-  Sala_06
-  Sala_05
-  Sala_09
-  Sala_10
-  Pisina_02
-  Gimnasio
- 
+Fronton
+Gimnasio
+Sala_01
+Sala_03
+Sala_02
+5
+Fronton
+Sala_08
+Sala_06
+Sala_09
+Pisina_02
+Gimnasio
