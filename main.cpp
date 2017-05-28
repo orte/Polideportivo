@@ -53,8 +53,7 @@ do
 			case 2: MostrarUsuarios(usuarios,total);
 				break;
 
-			case 3: EliminarUsuario();
-				break;
+			case 3: EliminarUsuario();break;
 
 			case 4: 
 				{
@@ -76,7 +75,7 @@ do
 				} 
 				break;
 
-			case 8: MostrarReservas(reservas,total_r);
+			case 8: LeerReservas();
 				break;
 
 			case 9: EliminarReserva();
@@ -87,9 +86,6 @@ do
 
 		}
 	} while(option != 0);
-
-	//liberamos la memoria reservada con cada malloc
-	//liberarMemoria(asignaturas, total);
 
 
 	return 0;
@@ -138,5 +134,4 @@ void clear_if_needed(char *str)
 }
 
 
-//FALTA HACER ESTO UNA VEZ QUE HAYAMOS HECHO EL METODO DE LECTURA (con sentio) DE FICHEROS ~ J
 

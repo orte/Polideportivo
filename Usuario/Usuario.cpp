@@ -139,7 +139,7 @@ void MostrarUsuarios(Usuario u[], int total)
 	LeerUsuarios();
 }
 
-int EscribirUsuario(char *nom, char *ap_1, char *ap_2) 
+void EscribirUsuario(char *nom, char *ap_1, char *ap_2) 
   {
   FILE* f; //file pointer
   char* nombre=nom;
@@ -154,12 +154,12 @@ int EscribirUsuario(char *nom, char *ap_1, char *ap_2)
   //escribir en fichero un string 
   fprintf(f, "Usuarios : \n" );
   }
-    fprintf(f, "%s\t \t  %s \t\t  %s\n", nombre,ap1,ap2); //Escribir en fichero
+    fprintf(f, "%s %s %s\n", nombre,ap1,ap2); //Escribir en fichero
   
   //cerrar fichero
   fclose(f);
   
-  return 0;
+
 
  }
  
@@ -189,7 +189,7 @@ int EscribirUsuario(char *nom, char *ap_1, char *ap_2)
   return 0;
 }
 
-int EliminarUsuario()
+void EliminarUsuario()
 {
 	char nombre_aux[MAX_LENGTH];
 	char nombre_auxaux[MAX_LENGTH];
@@ -213,6 +213,7 @@ int EliminarUsuario()
 	{
 		cout<< "Introduce el nombre del usuario a borrar :" << endl;
 		cin >> nombre_auxaux;
+		int i=0;
 
 
 		salida>>nombre_aux;
@@ -224,6 +225,8 @@ int EliminarUsuario()
 					if(strcmp(nombre_aux,nombre_auxaux)==0)
 					{
 						cout<< "ELIMINADO" << endl;
+						i=1;
+
 					}
 					else
 						 {
@@ -232,19 +235,28 @@ int EliminarUsuario()
 
 
 				salida>> nombre_aux;
+
+				
 		}
 
+				if(i=0)
+				{
+					cout<< "Usuario no encontrado";
+				}
 		entrada.close();
 		salida.close();
 
 		remove("Usuarios.txt");
 		rename ("temp.txt","Usuarios.txt");
+
+	
 	}
 
 
 
 
 }
+
 
 
 

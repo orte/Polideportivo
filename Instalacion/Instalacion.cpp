@@ -74,7 +74,7 @@ int EliminarInstalacion()
 
 
 
-
+//Para eliminar un registro en concreto del fichero crearé uno auxialiar en el que copiare todos los registros existentes excepto aquel que quiero eliminar.
 	ifstream salida;
 	salida.open("Instalaciones.txt",ios::in);
 
@@ -83,7 +83,7 @@ int EliminarInstalacion()
 
 	if(salida.fail())
 	{
-		cout<< "Error al abrir el archivo" << endl;
+		cout<< "Error al abrir el archivo Instalaciones.txt" << endl;
 
 	}
 	else

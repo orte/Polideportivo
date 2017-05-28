@@ -15,6 +15,9 @@
 
 using namespace std;
 
+
+
+
 struct tm* setFecha (Reserva *r) 
 {
 
@@ -90,10 +93,9 @@ if(salida.fail())
 		while(!salida.eof())
 		{
 			salida>> ap1_aux >> ap2_aux;
-			cout<<"J";
+
 			if(strcmp(nombre,nombre_aux)==0)
 					{
-						cout<<"P";
 						resultado=0;
 					}
 
@@ -136,7 +138,7 @@ salida>>nombrei_aux;
 		
 			if(strcmp(nombrei,nombrei_aux)==0)
 					{
-						cout<<"P";
+						
 						resultado_2=0;
 					}
 
@@ -180,7 +182,7 @@ salida>>nombrei_aux;
 		float dur;
 		char d_[MAX_LENGTH];
 		cin >> d_;  //fgets(str, MAX_LENGTH, stdin);
-		clear_if_needed(str);//
+		
 		sscanf(d_, "%f", &r->duracion);
 		sscanf(d_, "%f", &dur);
 		

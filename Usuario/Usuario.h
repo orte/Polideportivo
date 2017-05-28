@@ -21,10 +21,10 @@ extern "C" {
 	void AnadirUsuario(Usuario *u, int total);
 	void clear_if_needed(char *str);
 	void MostrarUsuarios(Usuario u[], int total);
-	int EscribirUsuario(char *nom, char *ap_1, char *ap_2) ;
+	void EscribirUsuario(char *nom, char *ap_1, char *ap_2) ;
 	int LeerUsuarios();
 
-	int EliminarUsuario();
+	void EliminarUsuario();
 
 
 	#ifdef __cplusplus

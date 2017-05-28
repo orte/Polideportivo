@@ -3,7 +3,6 @@ Gimnasio
 Sala_01
 Sala_03
 Sala_02
-5
 Fronton
 Sala_08
 Sala_06
