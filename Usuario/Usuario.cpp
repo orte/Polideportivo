@@ -184,7 +184,7 @@ void EscribirUsuario(char *nom, char *ap_1, char *ap_2)
   //cerrar fichero
   fclose(f);
   
-  printf("El fichero tiene %i usuarios registrados\n", num_lines-1);
+  printf("El fichero tiene %i usuarios registrados\n", num_lines);
   
   return 0;
 }
@@ -195,6 +195,8 @@ int EliminarUsuario()
 	char nombre_auxaux[MAX_LENGTH];
 	char ap1_aux[MAX_LENGTH];
 	char ap2_aux[MAX_LENGTH];
+
+	LeerUsuarios();
 
 
 
