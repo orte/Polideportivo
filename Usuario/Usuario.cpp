@@ -189,7 +189,7 @@ void EscribirUsuario(char *nom, char *ap_1, char *ap_2)
   return 0;
 }
 
-void EliminarUsuario()
+int EliminarUsuario()
 {
 	char nombre_aux[MAX_LENGTH];
 	char nombre_auxaux[MAX_LENGTH];
@@ -213,7 +213,7 @@ void EliminarUsuario()
 	{
 		cout<< "Introduce el nombre del usuario a borrar :" << endl;
 		cin >> nombre_auxaux;
-		int i=0;
+		
 
 
 		salida>>nombre_aux;
@@ -225,8 +225,7 @@ void EliminarUsuario()
 					if(strcmp(nombre_aux,nombre_auxaux)==0)
 					{
 						cout<< "ELIMINADO" << endl;
-						i=1;
-
+						
 					}
 					else
 						 {
@@ -239,20 +238,19 @@ void EliminarUsuario()
 				
 		}
 
-				if(i=0)
-				{
-					cout<< "Usuario no encontrado";
-				}
+				
 		entrada.close();
 		salida.close();
 
 		remove("Usuarios.txt");
 		rename ("temp.txt","Usuarios.txt");
 
+		
 	
 	}
 
 
+return 0;
 
 
 }

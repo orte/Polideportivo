@@ -24,7 +24,7 @@ extern "C" {
 	void EscribirUsuario(char *nom, char *ap_1, char *ap_2) ;
 	int LeerUsuarios();
 
-	void EliminarUsuario();
+	int EliminarUsuario();
 
 
 	#ifdef __cplusplus
